@@ -1,3 +1,5 @@
+# coding utf-8
+
 # Задание-1: уравнение прямой вида y = kx + b задано в виде строки.
 # Определить координату y точки с заданной координатой x.
 
@@ -5,6 +7,18 @@ equation = 'y = -12x + 11111140.2121'
 x = 2.5
 # вычислите и выведите y
 
+print("Задание №1")
+
+example1 = equation.split(' ')  # ['y', '=', '-12x', '+', '11111140.2121']
+
+first_name = str(example1[2])  # -12х
+example1[2] = first_name[:-1]  # -12
+
+two_name = float(example1[2]) * x + float(example1[4])  # -12 * 2.5 + 11111140.2121
+
+print("Y равно: ", two_name)
+
+print()
 
 # Задание-2: Дата задана в виде строки формата 'dd.mm.yyyy'.
 # Проверить, корректно ли введена дата.
@@ -24,6 +38,32 @@ date = '01.22.1001'
 date = '1.12.1001'
 date = '-2.10.3001'
 
+print("Задание №2")
+
+date_1 = input("Введите дату через точку: ")
+
+date_s = date_1.split(".")  # ['05', '06', '1992']
+
+date_day = int(date_s[0])  # 5
+date_month = int(date_s[1])  # 6
+date_year = int(date_s[2])  # 1992
+
+long_month = [1, 3, 5, 7, 8, 10, 12]
+
+if len(date_s[0]) != 2 or len(date_s[1]) != 2 or len(date_s[2]) != 4:
+    print("Введен некорректный формат даты")
+elif date_day > 31 or date_day < 1:
+    print("Введен некорректный день месяца")
+elif date_month > 12 or date_month < 1:
+    print("Введен некорректный месяц года")
+elif date_year < 1 or date_year > 9999:
+    print("Введен некорректный год")
+elif date_month not in long_month and date_day > 30:
+    print("Введен некорректный формат дня относительно месяца")
+else:
+    print("Введен корректный формат даты: ", date_1)
+
+print()
 
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
 #
@@ -54,3 +94,37 @@ date = '-2.10.3001'
 #
 # Вход: 11
 # Выход: 5 3
+
+print("Задание №3")
+
+room = int(input("Введите номер комнаты: "))
+
+floor_i = 1
+corridor_i = 1
+room_i = 1
+
+if room < 1 or room > 2000000000:
+    print("Введено неверное значение")
+else:
+
+    while room_i <= room:
+
+        for i in range(corridor_i):  # создание нового этажа
+            new_floor = []
+
+            for j in range(corridor_i):  # создание комнат на этаже
+                new_floor.append(room_i)
+                room_i += 1
+
+            # print("floor_i", floor_i, "corridor_i", corridor_i, "new_floor", new_floor)
+
+            if room in new_floor:  # если комната находится на данном этаже
+                # находим порядковый номер комнаты и прибавляем 1 т.к. отсчет идет с 0
+                room_position = new_floor.index(room) + 1
+                print("Комната № ", room)
+                print("Этаж №: ", floor_i)
+                print("Комната слева №: ", room_position)
+
+            floor_i += 1
+
+        corridor_i += 1
