@@ -64,3 +64,25 @@ print(found_upper)
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
+
+symbols = ''
+while len(symbols) < 2500:  # Пока длина списка символов меньше 2500
+    symbols += str(random.randint(0, 9))  # Добавляем произвольную цифру
+with open('hw4_z3.txt', 'tw', encoding='utf-8') as file:  # Создаем файл(w)
+    file.write(symbols)  # Записываем сгенерированный список
+
+with open('hw4_z3.txt', 'r') as file:
+    read_file = file.readline()
+    print(read_file)
+
+max_line = ''
+n_line = ''
+for c in read_file:
+    if c not in n_line:
+        if len(max_line) < len(n_line):
+            max_line = n_line
+        n_line = ''
+    n_line += c
+
+print(f"Самая длинная последовательность одинакового числа: {max_line}\n"
+      f"Количество одинаковых символов: {len(max_line)}")
