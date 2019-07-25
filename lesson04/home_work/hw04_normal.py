@@ -66,6 +66,7 @@ print(found_upper)
 # в вышезаполненном файле.
 
 symbols = ''
+
 while len(symbols) < 2500:  # Пока длина списка символов меньше 2500
     symbols += str(random.randint(0, 9))  # Добавляем произвольную цифру
 with open('hw4_z3.txt', 'tw', encoding='utf-8') as file:  # Создаем файл(w)

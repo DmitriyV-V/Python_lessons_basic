@@ -15,7 +15,6 @@ matrix = [[1, 0, 8],
 
 
 print(matrix)
-
 print('matrix_rotate =', list(map(list, zip(*matrix))))
 
 
