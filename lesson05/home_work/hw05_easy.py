@@ -26,6 +26,9 @@ def make_dir(name):
         print('Такая директория уже существует')
 
 
+if __name__ == '__main__':
+    make_dir("dir_1")
+
 '''
 def del_dir():
     for i in range(9):
@@ -43,6 +46,10 @@ def del_dir(name):
         os.removedirs(name)
     except FileExistsError:
         print('Такой директории не существует')
+
+
+if __name__ == '__main__':
+    del_dir("dir_1")
 
 # Задача-2:
 # Напишите скрипт, отображающий папки текущей директории.
@@ -62,6 +69,9 @@ def list_dir():
             print(f"{index}. {element}")
 
 
+if __name__ == '__main__':
+    list_dir()
+
 # Задача-3:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
 
@@ -75,3 +85,7 @@ def copy_file():
         print(f"{new_file} создан")
     else:
         print("Файл уже скопирован")
+
+
+if __name__ == '__main__':
+    copy_file()

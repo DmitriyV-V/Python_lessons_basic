@@ -95,19 +95,24 @@ def ping():
     print("pong")
 
 
-do = {"help": print_help(),
-      "mkdir": make_dir(),
-      "ping": ping(),
-      "cp": file_copy(),
-      "cd": dir_change(),
-      "rm": del_file(),
-      "ls": current_dir()
+do = {"help": print_help,
+      "mkdir": make_dir,
+      "ping": ping,
+      "cp": file_copy,
+      "cd": dir_change,
+      "rm": del_file,
+      "ls": current_dir
       }
 
 try:
     file_name = sys.argv[2]
 except IndexError:
     file_name = None
+
+try:
+    dir_name = sys.argv[2]
+except IndexError:
+    dir_name = None
 
 try:
     key = sys.argv[1]

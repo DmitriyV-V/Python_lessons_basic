@@ -18,12 +18,14 @@ import hw05_easy as hw5
 # оформленные в виде соответствующих функций,
 # и импортированные в данный файл из easy.py
 
+
 def dir_change(path):
     try:
         os.chdir(path)
         print(f"Переход в папку {path}")
     except FileNotFoundError:
         print(f"Папка dir_{path} не создана")
+
 
 def menu():
     answer = ''
@@ -51,3 +53,6 @@ def menu():
         else:
             print("Введено некорректное значение. Пожалуйста, повторите")
 
+
+if __name__ == '__main__':
+    menu()
