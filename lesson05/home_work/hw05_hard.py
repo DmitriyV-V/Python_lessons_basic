@@ -40,7 +40,7 @@ def file_copy():
         return
     current_dir = os.getcwd()
     old_file = os.path.join(current_dir, file_name)
-    new_file = os.path.join(current_dir, (file_name + 'copy'))
+    new_file = os.path.join(current_dir, (file_name + '.copy'))
     if os.path.isfile(new_file) != True:
         shutil.copy(old_file, new_file)
         print(f"{new_file} создан")
